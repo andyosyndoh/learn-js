@@ -1,26 +1,6 @@
-const clone1 = {
-    name: 'Rick',
-    age: 77,
-    country: 'US',
-}
+const clone1 = {...person};
+const clone2 = {...person};
+const samePerson = person;
 
-const clone2 = {
-    name: 'Rick',
-    age: 77,
-    country: 'US',
-}
-
-const samePerson = {
-    name: 'Rick',
-    age: 77,
-    country: 'US',
-}
-
-Object.freeze(clone1);
-Object.freeze(clone2);
-
-samePerson.name = person.name;
-samePerson.age = person.age;
-samePerson.country = person.name;
-
-
+person.age += 1;
+person.country = 'FR';
