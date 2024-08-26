@@ -8,6 +8,6 @@ function last(arr) {
 };
 
 function kiss(arr) {
-    const length = arr.length; 
-    const ans = [arr[length-1],arr[0]];
+    const length = arr.length -1; 
+    const ans = [arr[length],arr[0]];
 };
