@@ -9,5 +9,5 @@ function last(arr) {
 
 function kiss(arr) {
     const length = arr.length; 
-    const ans = [arr[0],arr[length-1]];
+    const ans = [arr[length-1],arr[0]];
 };
