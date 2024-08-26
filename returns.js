@@ -1,2 +1,5 @@
 const id = arg => arg;
-const getLength = arg => length.arg;
+function getLength(arg) {
+    const length = arg.length;
+    return length;
+};
