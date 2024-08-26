@@ -1,9 +1,3 @@
-const person = {
-    name: 'Rick',
-    age: 78,
-    country: 'FR',
-}
-
 const clone1 = {
     name: 'Rick',
     age: 77,
