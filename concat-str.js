@@ -1,3 +1,3 @@
 function concatStr(num, arg) {
-    return num+arg;
+    return String(num) + String(arg);
 };
