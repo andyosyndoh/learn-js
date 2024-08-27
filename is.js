@@ -25,7 +25,7 @@ is.def = function (x) {
 };
 
 is.arr = function (x) {
-    return typeof x === 'array';
+    return Array.isArray(x)
 };
 
 is.obj = function (x) {
