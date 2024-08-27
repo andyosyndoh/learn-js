@@ -5,7 +5,7 @@ is.num = function (x) {
 };
 
 is.nan = function (x) {
-    return typeof x === 'NaN';
+    return Number.isNaN(x);;
 };
 
 is.str = function (x) {
@@ -36,10 +36,10 @@ is.fun = function (x) {
     return typeof x === 'function';
 };
 
-is.truthy = function (value) {
-    return !!value;
+is.truthy = function (x) {
+    return !!x;
 };
 
-is.falsy = function (value) {
-    return !value;
+is.falsy = function (x) {
+    return !x;
 };
