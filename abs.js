@@ -4,6 +4,8 @@ function isPositive(num) {
 
 function abs(num) {
     const dis = num - 0;
-    if (dis < 0) dis *= -1;
+    if (dis < 0) {
+       return dis * -1;
+    };
     return dis;
 };
