@@ -1,1 +1,2 @@
-const circular = {circular}
+const circular = {};
+circular.circular = circular;
