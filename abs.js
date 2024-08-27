@@ -1,5 +1,5 @@
 function isPositive(num) {
-    if (num >= 0) return true;
+    if (num > 0) return true;
 };
 
 function abs(num) {
