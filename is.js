@@ -15,7 +15,7 @@ is.str = function (x) {
 is.bool = function (x) {
     return typeof x === 'boolean';
 };
-num
+
 is.undef = function (x) {
     return typeof x === 'undefined';
 };
@@ -36,10 +36,10 @@ is.fun = function (x) {
     return typeof x === 'function';
 };
 
-is.truthy = function(value) {
+is.truthy = function (value) {
     return !!value;
 };
 
-is.falsy = function(value) {
+is.falsy = function (value) {
     return !value;
 };
