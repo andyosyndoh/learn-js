@@ -1,2 +1,5 @@
-const smalls = smalls === Number.POSITIVE_INFINITY;
-const biggie = biggie === Number.NEGATIVE_INFINITY;
+const smalls = Number;
+const biggie = Number;
+
+smalls === Number.POSITIVE_INFINITY;
+biggie === Number.NEGATIVE_INFINITY
