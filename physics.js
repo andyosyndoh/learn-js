@@ -9,7 +9,7 @@ const obj = {
 
 function getAcceleration(obj) {
     if (obj === null) {
-        return "impossible";
+        return 'impossible';
     }
     a = obj.f / obj.Δvm;
     a = obj.Δv / obj.Δt;
