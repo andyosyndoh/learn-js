@@ -1,4 +1,2 @@
-const smalls = Number.MIN_VALUE;
-const biggie = Number.MAX_VALUE;
-
-smalls < biggie
+const smalls = smalls === Number.POSITIVE_INFINITY;
+const biggie = biggie === Number.NEGATIVE_INFINITY;
