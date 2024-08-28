@@ -16,9 +16,12 @@ function indexOf(arr, n, start) {
     return -1;
 };
 
-function lastIndexOf(arr, n, start = 0) {
-    start = arr.length-start-1
-    for (let i = start; i >= 0; i--) {
+function lastIndexOf(arr, n, start) {
+    let begin = arr.length-1
+    if (start != undefined) {
+        begin = start;
+    };
+    for (let i = begin; i >= 0; i--) {
         if (arr[i] === n) {
             return i;
         }
