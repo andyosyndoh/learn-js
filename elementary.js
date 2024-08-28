@@ -26,9 +26,9 @@ function multiply(a, b) {
 };
 
 function divide(a, b) {
-    if (a < b) {
-        return 0;
-    };
+    // if (a < b) {
+    //     return 0;
+    // };
     if (a === 0) {
         return 0;
     };
@@ -67,3 +67,4 @@ function modulo(a, b) {
 console.log(multiply(34, 78));
 console.log(divide(34, 78));
 console.log(divide(78, 34));
+console.log(divide(-123, 22));
