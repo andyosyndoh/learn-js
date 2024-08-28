@@ -29,12 +29,12 @@ function divide(a, b) {
     if (a < b) {
         return 0;
     };
-    for (i = 0; i < a; i++) {
-        if (multiply(b,i) === a) {
-            return i;
-        };
-    };
-    return 0;
+    let quotient = 0;
+    while (a >= b) {
+        a -= b;
+        quotient++;
+    }
+    return quotient
 };
 
 function modulo(a, b) {
@@ -43,3 +43,4 @@ function modulo(a, b) {
 
 console.log(multiply(34, 78));
 console.log(divide(34, 78));
+console.log(divide(78, 34));
