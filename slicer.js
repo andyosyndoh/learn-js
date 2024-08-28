@@ -7,6 +7,9 @@ function slice(arr, start, end) {
         start = arr.length + start;
         finish = arr.length;
     }
+    if (end < 0) {
+        finish = arr.length + end;
+    };
     let result = '';
     for (let i = start; i < finish; i++) {
         result += arr[i]
@@ -15,3 +18,4 @@ function slice(arr, start, end) {
 };
 
 console.log(slice('abcdef', -2));
+console.log(slice('abcdef', 0, -2));
