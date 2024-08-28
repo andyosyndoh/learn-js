@@ -3,15 +3,15 @@ function multiply(a, b) {
         return a;
     };
     let is = false;
-    if (a < 0 && b > 0){
+    if (a < 0 && b > 0) {
         a = -a;
         is = true;
     };
-    if (b < 0 && a > 0){
+    if (b < 0 && a > 0) {
         b = -b;
         is = true;
     };
-    if (b < 0 && a < 0){
+    if (b < 0 && a < 0) {
         b = -b;
         a = -a;
     };
@@ -26,7 +26,11 @@ function multiply(a, b) {
 };
 
 function divide(a, b) {
-    return a / b;
+    for (i = 0; i < a; i++) {
+        if (b*i === a) {
+            return i;
+        };
+    };
 };
 
 function modulo(a, b) {
