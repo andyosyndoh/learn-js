@@ -29,6 +29,9 @@ function divide(a, b) {
     if (a < b) {
         return 0;
     };
+    if (a === 0) {
+        return 0;
+    };
     let quotient = 0;
     while (a >= b) {
         a -= b;
