@@ -40,8 +40,8 @@ function divide(a, b) {
     while (a >= b) {
         a -= b;
         quotient++;
-    }
-    return quotient
+    };
+    return quotient;
 };
 
 function modulo(a, b) {
