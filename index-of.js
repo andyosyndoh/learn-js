@@ -17,21 +17,13 @@ function indexOf(arr, n, start) {
 };
 
 function lastIndexOf(arr, n, start) {
-    let begin = 0;
-    // if (start != undefined) {
-    //     begin = start;
-    // };
-    let x = undefined;
-    const length = arr.length;
-    for (let i = begin; i < length; i++) {
+    start = arr.length-1
+    for (let i = start; i >= 0; i--) {
         if (arr[i] === n) {
-            x = i;
-        };
-    };
-    if (x === undefined) {
-        return -1;
-    };
-    return x;
+            return i;
+        }
+    }
+    return -1;
 };
 
 function includes(arr, n, start) {
