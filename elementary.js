@@ -3,13 +3,17 @@ function multiply(a, b) {
         return a;
     };
     let is = false;
-    if (a < 0){
+    if (a < 0 && b > 0){
         a = -a;
         is = true;
     };
-    if (b < 0){
+    if (b < 0 && a > 0){
         b = -b;
         is = true;
+    };
+    if (b < 0 && a < 0){
+        b = -b;
+        a = -a;
     };
     let ans = 0
     for (let i = 0; i < b; i++) {
