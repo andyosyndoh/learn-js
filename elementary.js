@@ -27,7 +27,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     for (i = 0; i < a; i++) {
-        if (b*i === a) {
+        if (multiply(b,i) === a) {
             return i;
         };
     };
