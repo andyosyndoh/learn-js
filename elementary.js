@@ -2,11 +2,11 @@ function multiply(a, b) {
     if (b === 1) {
         return a;
     };
-
-    for (let i = 1; i < b; i++) {
-        a += a;
+    let ans = 0
+    for (let i = 0; i < b; i++) {
+        ans += a;
     };
-    return a
+    return ans
 };
 
 function divide(a, b) {
@@ -16,3 +16,5 @@ function divide(a, b) {
 function modulo(a, b) {
     return a % b;
 };
+
+console.log(multiply(34, 78));
