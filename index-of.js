@@ -17,7 +17,7 @@ function indexOf(arr, n, start) {
 };
 
 function lastIndexOf(arr, n, start) {
-    start = arr.length-start
+    start = arr.length-start-1
     for (let i = start; i >= 0; i--) {
         if (arr[i] === n) {
             return i;
