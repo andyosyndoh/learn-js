@@ -3,7 +3,7 @@ function slice(arr, start, end) {
     if (end !== undefined) {
         finish = end;
     };
-    if (start < 0 && end === undefined) {
+    if (start < 0 ) {
         start = arr.length + start;
         finish = arr.length;
     }
