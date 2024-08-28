@@ -3,5 +3,11 @@ function slice(arr, start, end){
     if (end !== undefined){
         finish = end;
     };
-    return arr.slice(start,finish);
+    let result = '';
+    for (let i= start;i < finish;i++){
+        result += arr[i]
+    };
+    return result;
 };
+
+console.log(slice('abcdef', 2));
