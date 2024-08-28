@@ -3,7 +3,7 @@ function indexOf(arr, n,start) {
     if (start != undefined) {
         begin = start;
     };
-    const length = arr.length()
+    const length = arr.length
     for (i = begin;i < length;i++){
         if (arr[i] === n){
             return i;
@@ -18,7 +18,7 @@ function lastIndexOf(arr, n,start) {
         begin = start;
     };
     let x = undefined;
-    const length = arr.length()
+    const length = arr.length
     for (i = begin;i < length;i++){
         if (arr[i] === n){
             x = i;
@@ -35,7 +35,7 @@ function includes(arr, n,start) {
     if (start != undefined) {
         begin = start;
     };
-    const length = arr.length()
+    const length = arr.length
     for (i = begin;i < length;i++){
         if (arr[i] === n){
             return true;
@@ -43,4 +43,6 @@ function includes(arr, n,start) {
     };
     return false;
 };
+
+console.log(indexOf([1, 2, 3, 4, 5, 4, 3, 2, 1], 2));
 
