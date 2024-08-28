@@ -61,10 +61,13 @@ function divide(a, b) {
 };
 
 function modulo(a, b) {
-    return a % b;
+    let c = divide(a,b);
+    const diff = multiply(b,c);
+    return a - diff;
 };
 
 console.log(multiply(34, 78));
 console.log(divide(34, 78));
 console.log(divide(78, 34));
 console.log(divide(-123, 22));
+console.log(modulo(79, 38));
