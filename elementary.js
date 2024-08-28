@@ -31,6 +31,7 @@ function divide(a, b) {
             return i;
         };
     };
+    return 0;
 };
 
 function modulo(a, b) {
