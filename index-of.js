@@ -1,3 +1,4 @@
+const t = 't';
 function indexOf(arr, n, start) {
     let begin = 0;
     if (start != undefined) {
