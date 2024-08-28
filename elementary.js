@@ -32,6 +32,10 @@ function divide(a, b) {
     if (a === 0) {
         return 0;
     };
+    if (b === 0) {
+        return 0;
+    };
+
     let quotient = 0;
     while (a >= b) {
         a -= b;
