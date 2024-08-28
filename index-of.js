@@ -30,7 +30,7 @@ function lastIndexOf(arr, n,start) {
     return x;
 };
 
-function indexOf(arr, n,start) {
+function includes(arr, n,start) {
     let begin = 0;
     if (start != undefined) {
         begin = start;
