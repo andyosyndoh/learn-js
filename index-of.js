@@ -16,7 +16,7 @@ function indexOf(arr, n, start) {
     return -1;
 };
 
-function lastIndexOf(arr, n, start) {
+function lastIndexOf(arr, n, start = 0) {
     start = arr.length-start-1
     for (let i = start; i >= 0; i--) {
         if (arr[i] === n) {
@@ -41,4 +41,4 @@ function includes(arr, n, start) {
 };
 
 // console.log(indexOf([1, 2, 3, 4, 5, 4, 3, 2, 1], 2));
-// console.log(lastIndexOf([t, 0, 0, t], t, 2));
+// console.log(lastIndexOf([1, 2, 3, 4, 5, 4, 3, 2, 1], 2));
