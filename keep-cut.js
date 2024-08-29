@@ -52,12 +52,12 @@ function slice(arr, start, end) {
     return ans;
 };
 
-const testString = "JavaScript";
+// const testString = "JavaScript";
 
-console.log("Original String:", testString);
-console.log("cutFirst:", cutFirst(testString));           // "vaScript"
-console.log("cutLast:", cutLast(testString));             // "JavaScri"
-console.log("cutFirstLast:", cutFirstLast(testString));   // "vaScri"
-console.log("keepFirst:", keepFirst(testString));         // "Ja"
-console.log("keepLast:", keepLast(testString));           // "pt"
-console.log("keepFirstLast:", keepFirstLast(testString)); // "Japt"
+// console.log("Original String:", testString);
+// console.log("cutFirst:", cutFirst(testString));           // "vaScript"
+// console.log("cutLast:", cutLast(testString));             // "JavaScri"
+// console.log("cutFirstLast:", cutFirstLast(testString));   // "vaScri"
+// console.log("keepFirst:", keepFirst(testString));         // "Ja"
+// console.log("keepLast:", keepLast(testString));           // "pt"
+// console.log("keepFirstLast:", keepFirstLast(testString)); // "Japt"
