@@ -3,9 +3,12 @@ function round(num) {
     for (let i = 0; i < num.length; i++) {
         let first = Math.floor(num[i]);
         if ((num[i] - first) >= 0.5) {
-            first += 1;
+            let ans = first + 1;
+            res.push(ans);
+        } else {
+            res.push(first);
         };
-        res.push(first);
+
     };
     return res;
 };
