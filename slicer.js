@@ -3,7 +3,7 @@ function slice(arr, start, end) {
     if (end !== undefined) {
         finish = end;
     };
-    if (start < 0 ) {
+    if (start < 0) {
         start = arr.length + start;
         finish = arr.length;
     }
@@ -11,18 +11,15 @@ function slice(arr, start, end) {
         finish = arr.length + end;
     };
     let resultarr = [];
-    let resultstr = "";
-    for (let i = start; i < finish; i++) {
-        if (Array.isArray(arr)) {
-            resultarr += arr[i];
-        } else {
-            resultstr += arr[i];
-        };
-    };
+
     if (Array.isArray(arr)) {
-       return resultarr;
-    } ;
-    return resultstr;
+        for (let i = start; i < finish; i++) resultarr.push(arr[i]);
+        return resultarr;
+    };
+
+    for (let i = start; i < finish; i++) resultarr.push(arr[i]);
+    let ans = resultarr.join("");
+    return ans;
 };
 
 console.log(slice('abcdef', -2));
