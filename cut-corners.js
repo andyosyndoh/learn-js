@@ -8,5 +8,5 @@ function round(num) {
     return res;
 };
 
-const nums = [3.7, -3.7, 3.1, -3.1];
-console.log(round(nums));
+// const nums = [3.7, -3.7, 3.1, -3.1];
+// console.log(round(nums));
