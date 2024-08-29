@@ -24,7 +24,7 @@ function keepLast(str) {
 };
 
 function keepFirstLast(str) {
-    if (str.length < 3) return str;
+    if (str.length < 5) return str;
     return keepFirst(str) + keepLast(str);
 };
 
