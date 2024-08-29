@@ -13,15 +13,18 @@ function cutFirstLast(str) {
 };
 
 function keepFirst(str) {
+    if (str.length < 3) return str;
     return slice(str, 0, 2);
 };
 
 function keepLast(str) {
+    if (str.length < 3) return str;
     const length = str.length - 2;
     return slice(str, length);
 };
 
 function keepFirstLast(str) {
+    if (str.length < 3) return str;
     return keepFirst(str) + keepLast(str);
 };
 
@@ -49,12 +52,12 @@ function slice(arr, start, end) {
     return ans;
 };
 
-// const testString = "JavaScript";
+const testString = "JavaScript";
 
-// console.log("Original String:", testString);
-// console.log("cutFirst:", cutFirst(testString));           // "vaScript"
-// console.log("cutLast:", cutLast(testString));             // "JavaScri"
-// console.log("cutFirstLast:", cutFirstLast(testString));   // "vaScri"
-// console.log("keepFirst:", keepFirst(testString));         // "Ja"
-// console.log("keepLast:", keepLast(testString));           // "pt"
-// console.log("keepFirstLast:", keepFirstLast(testString)); // "Japt"
+console.log("Original String:", testString);
+console.log("cutFirst:", cutFirst(testString));           // "vaScript"
+console.log("cutLast:", cutLast(testString));             // "JavaScri"
+console.log("cutFirstLast:", cutFirstLast(testString));   // "vaScri"
+console.log("keepFirst:", keepFirst(testString));         // "Ja"
+console.log("keepLast:", keepLast(testString));           // "pt"
+console.log("keepFirstLast:", keepFirstLast(testString)); // "Japt"
