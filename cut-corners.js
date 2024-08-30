@@ -123,7 +123,7 @@ function trunc(num) {
     let neg = false;
     if (num < 0) {
         neg = true;
-        nnum = -num;
+        num = -num;
     };
     let copy = num;
     while (!(copy< 1 && copy > -1)){
