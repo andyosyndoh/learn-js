@@ -36,7 +36,6 @@ function slice(arr, start, end) {
     };
     let resultarr = '';
 
-    for (let i = start; i < finish; i++) resultarr.push(arr[i]);
-    
+    for (let i = start; i < finish; i++) resultarr += (arr[i]);
     return resultarr;
 }
