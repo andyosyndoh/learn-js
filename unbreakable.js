@@ -2,9 +2,9 @@ function split(str, s) {
     let res = [];
     let st = 0;
     for (let i = 0; i < str.length; i++) {
-        if (str[i] === s) {
+        if (slice(str ,i, i+s.length) === s) {
             res.push(slice(str, st, i));
-            st = i + 1;
+            st = i + s.length;
         } else if (i === str.length -1) {
             res.push(slice(str, st, str.length));
         };
