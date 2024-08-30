@@ -125,7 +125,6 @@ function trunc(num) {
     // if (rem >= 0.5) {
     //     whole += 1;
     // };
-
     if (neg) {
         whole = -whole;
     };
