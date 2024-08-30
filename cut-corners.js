@@ -114,15 +114,15 @@ function ceil(num) {
     return neg ? -whole : whole + 1;
 };
 
-function trunc(num) {
-    let neg = false;
-    if (num < 0) {
-        num = -num;
-        neg = true;
-    };
-    let rem = modulo(num, 1);
-    let whole = num - rem;
+// function trunc(num) {
+//     let neg = false;
+//     if (num < 0) {
+//         num = -num;
+//         neg = true;
+//     };
+//     let rem = modulo(num, 1);
+//     let whole = num - rem;
 
-    return neg ? -whole : whole;
-};
+//     return neg ? -whole : whole;
+// };
 
