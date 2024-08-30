@@ -123,9 +123,6 @@ function trunc(num) {
     let rem = modulo(num, 1);
     let whole = num - rem;
 
-    if (neg) {
-        whole = -whole;
-    };
-    return whole;
+    return neg ? -whole : whole;
 };
 
