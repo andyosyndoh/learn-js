@@ -24,7 +24,7 @@ function DNA(str) {
         } else if (str[i] === 'G'){
             res += 'C'
         } else if (str[i] === 'A'){
-            res += 't'
+            res += 'T'
         } else if (str[i] === 'U'){
             res += 'A'
         } else {
