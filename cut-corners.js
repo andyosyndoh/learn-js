@@ -115,9 +115,7 @@ function ceil(num) {
 };
 
 function trunc(num) {
-
-    return floor(num)
-
+    return floor(num);
 };
 
 
