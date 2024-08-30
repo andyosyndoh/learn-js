@@ -3,8 +3,10 @@ function split(str, s) {
     let st = 0;
     for (let i = 0; i < str.length; i++) {
         if (str[i] === s) {
-            res += slice(str, st, i);
+            res.push(slice(str, st, i));
             st = i + 1;
+        } else if (i === str.length -1) {
+            res.push(slice(str, st, str.length));
         };
     };
     return res
@@ -39,3 +41,5 @@ function slice(arr, start, end) {
     for (let i = start; i < finish; i++) resultarr += (arr[i]);
     return resultarr;
 }
+
+console.log(split('a b c', ' '));
