@@ -110,12 +110,15 @@ function floor(num) {
     };
     let rem = modulo(num,1);
     let whole = num - rem;
-    if (rem > 0){
+    if (rem > 0 && neg){
         whole -= 1;
+        whole = -whole;
+        return whole;
     };
 
-    if (neg) {
-        whole = -whole;
+    if (neg === false && rem > 0) {
+        whole -= 1;
+        return whole;
     };
     return whole;
 };
