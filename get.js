@@ -1,6 +1,6 @@
 // const src = { nested: { key: 'peekaboo' } };
 // const path = 'nested.key';
-// console.log(get(src, path)); // -> 'peekaboo'
+// console.log(get({ a: [{ b: t }] }, 'a.0.b.toString')); 
 
 function get(src,path){
     const keys = path.split('.');
@@ -11,7 +11,7 @@ function get(src,path){
         if (current && current.hasOwnProperty(key)) {
             current = current[key]; 
         } else {
-            return undefined; 
+            return keys[keys.length-1]
         }
     }
 
