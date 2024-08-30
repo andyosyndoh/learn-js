@@ -6,7 +6,7 @@ function split(str, s) {
             res.push(slice(str, st, i));
             st = i + s.length;
         } else if (i === str.length -1) {
-            res.push(slice(str, st, str.length));
+            if (slice(str, st, str.length) !== '') res.push(slice(str, st, str.length));
         };
     };
     return res
@@ -43,3 +43,5 @@ function slice(arr, start, end) {
 }
 
 console.log(split('a b c', ' '));
+console.log(split('ggg - ddd - b', ' - '))
+console.log(split('ee,ff,g,', ','))
