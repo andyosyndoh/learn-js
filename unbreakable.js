@@ -34,14 +34,9 @@ function slice(arr, start, end) {
     if (end < 0) {
         finish = arr.length + end;
     };
-    let resultarr = [];
-
-    if (Array.isArray(arr)) {
-        for (let i = start; i < finish; i++) resultarr.push(arr[i]);
-        return resultarr;
-    };
+    let resultarr = '';
 
     for (let i = start; i < finish; i++) resultarr.push(arr[i]);
-    let ans = resultarr.join("");
-    return ans;
-};
+    
+    return resultarr;
+}
