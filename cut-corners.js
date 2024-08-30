@@ -20,9 +20,9 @@ function multiply(a, b) {
         ans += a;
     };
     if (is) {
-        return -ans
+        return -ans;
     }
-    return ans
+    return ans;
 };
 
 function divide(a, b) {
@@ -55,8 +55,8 @@ function divide(a, b) {
         quotient++;
     };
     if (is) {
-        return -quotient
-    }
+        return -quotient;
+    };
     return quotient;
 };
 
