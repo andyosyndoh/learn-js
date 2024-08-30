@@ -1,5 +1,5 @@
 function pyramid(s, num) {
-    let spaces = ((length(num)) - 1) / 2
+    let spaces = ((length(num)) - s.length) / 2
     let final = '';
     for (let i = 1; i <= num; i++) {
         if (i < num) {
@@ -8,7 +8,7 @@ function pyramid(s, num) {
             final += ret(' ', spaces) + ret(s, length(i))
         }
             
-        spaces--
+        spaces -= s.length
     }
     return final
 }
