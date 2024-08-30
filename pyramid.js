@@ -1,5 +1,5 @@
 function pyramid(s, num) {
-    let spaces = ((length(num)) - s.length) / 2
+    let spaces = ((length(num)*s.length) - s.length) / 2
     let final = '';
     for (let i = 1; i <= num; i++) {
         if (i < num) {
@@ -32,4 +32,4 @@ function ret(s, n) {
     return result
 }
 
-console.log(pyramid('*', 5));
+console.log(pyramid('{}', 12));
