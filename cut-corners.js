@@ -92,11 +92,12 @@ function floor(num) {
     };
     let rem = modulo(num, 1);
     let whole = num - rem;
-    if (neg === true) {
-        return (whole * -1);
-    } else {
-        return whole;
-    };
+    // if (neg === true) {
+    //     return (whole * -1);
+    // } else {
+    //     return whole;
+    // };
+    return neg ? -whole -1 : whole;
 };
 
 function ceil(num) {
