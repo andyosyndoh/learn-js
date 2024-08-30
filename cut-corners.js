@@ -61,8 +61,8 @@ function divide(a, b) {
 };
 
 function modulo(a, b) {
-    let c = divide(a,b);
-    const diff = multiply(b,c);
+    let c = divide(a, b);
+    const diff = multiply(b, c);
     return a - diff;
 };
 
@@ -72,9 +72,9 @@ function round(num) {
         num = -num;
         neg = true;
     };
-    let rem = modulo(num,1);
+    let rem = modulo(num, 1);
     let whole = num - rem;
-    if (rem >= 0.5){
+    if (rem >= 0.5) {
         whole += 1;
     };
 
@@ -90,9 +90,9 @@ function ceil(num) {
         num = -num;
         neg = true;
     };
-    let rem = modulo(num,1);
+    let rem = modulo(num, 1);
     let whole = num - rem;
-    if (rem > 0){
+    if (rem > 0) {
         whole += 1;
     };
 
@@ -108,18 +108,14 @@ function floor(num) {
         num = -num;
         neg = true;
     };
-    let rem = modulo(num,1);
+    let rem = modulo(num, 1);
     let whole = num - rem;
-    if (rem > 0 && neg){
+    if (rem !== 0) {
         whole -= 1;
+    }
+    if (neg){
         whole = -whole;
-        return whole;
-    };
-
-    if (neg === false && rem > 0) {
-        whole -= 1;
-        return whole;
-    };
+    }
     return whole;
 };
 
@@ -129,7 +125,7 @@ function trunc(num) {
         num = -num;
         neg = true;
     };
-    let rem = modulo(num,1);
+    let rem = modulo(num, 1);
     let whole = num - rem;
 
     if (neg) {
