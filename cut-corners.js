@@ -137,12 +137,4 @@ function trunc(num) {
     };
     return whole;
 };
-// Math.round = Math.ceil = Math.floor = Math.trunc = undefined
 
-
-
-// const nums = [3.7, -3.7, 3.1, -3.1];
-// console.log(nums.map(round));  // Output: [4, -4, 3, -3]
-// console.log(nums.map(floor));  // Output: [3, -4, 3, -4]
-// console.log(nums.map(trunc));  // Output: [3, -3, 3, -3]
-// console.log(nums.map(ceil)); 
