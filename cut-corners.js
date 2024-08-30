@@ -111,7 +111,7 @@ function ceil(num) {
     // if (rem !== 0) {
     //     whole += 1;
     // }
-    return neg ? -whole +1 : whole;
+    return neg ? -whole : whole;
 };
 
 
