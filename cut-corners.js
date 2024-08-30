@@ -117,7 +117,7 @@ function floor(num) {
     let rem = modulo(num, 1);
     let whole = num - rem;
     if (neg === true) {
-        return -whole;
+        return whole * -1;
     } else {
         return whole;
     };
