@@ -20,3 +20,5 @@ function get(src,path){
 
     return current;
 }
+
+console.log(get({ key: 'value' }, 'nx'))
