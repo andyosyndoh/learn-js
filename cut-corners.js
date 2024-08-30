@@ -108,20 +108,10 @@ function ceil(num) {
     };
     let rem = modulo(num, 1);
     let whole = num - rem;
-    if (rem === 0) {
-        if (neg === true) {
-            return -whole;
-        } else {
-            return whole;
-        };
-    } else {
-        whole += 1
-        if (neg === true) {
-            return -whole;
-        } else {
-            return whole;
-        };
-    };
+    if (rem !== 0) {
+        whole += 1;
+    }
+    return neg ? -whole -1 : whole;
 };
 
 
