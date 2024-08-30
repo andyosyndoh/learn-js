@@ -2,13 +2,16 @@ function split(str, s) {
     let res = [];
     let st = 0;
     for (let i = 0; i < str.length; i++) {
-        if (slice(str ,i, i+s.length) === s) {
+        if (slice(str, i, i + s.length) === s) {
             res.push(slice(str, st, i));
             st = i + s.length;
-        } else if (i === str.length -1) {
-            if (slice(str, st, str.length) !== '') res.push(slice(str, st, str.length));
+        } else if (i === str.length - 1) {
+            res.push(slice(str, st, str.length));
         };
     };
+    if (slice(str, str.length-s.length, str.length) === s){
+        res.push('')
+    }
     return res
 };
 
@@ -44,4 +47,4 @@ function slice(arr, start, end) {
 
 // console.log(split('a b c', ' '));
 // console.log(split('ggg - ddd - b', ' - '))
-// console.log(split('ee,ff,g,', ','))
+console.log(split('ee,ff,g,', ','))
