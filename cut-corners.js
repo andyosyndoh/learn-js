@@ -116,18 +116,10 @@ function floor(num) {
     };
     let rem = modulo(num, 1);
     let whole = num - rem;
-    if (rem === 0) {
-        if (neg === true) {
-            return -whole;
-        } else {
-            return whole;
-        };
+    if (neg === true) {
+        return -whole;
     } else {
-        if (neg === true) {
-            return -whole;
-        } else {
-            return whole;
-        };
+        return whole;
     };
 };
 
