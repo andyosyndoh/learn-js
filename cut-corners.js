@@ -103,12 +103,12 @@ function floor(num) {
 function ceil(num) {
     let neg = false;
     if (num < 0) {
-        num = -num;
+        num = (num * -1);
         neg = true;
     };
     let rem = modulo(num, 1);
     let whole = num - rem;
-    if (rem !== 0) {
+    if (rem > 0) {
         whole += 1;
     }
     return neg ? -whole : whole;
