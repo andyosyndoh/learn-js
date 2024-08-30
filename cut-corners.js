@@ -115,19 +115,25 @@ function ceil(num) {
 };
 
 function trunc(num) {
+    let count = 0;
+    if (num > 0xfffffffff) {
+        num -= 0xfffffffff;
+        count += 0xfffffffff;
+    };
     let neg = false;
     if (num < 0) {
-        num = (num * -1);
         neg = true;
+        nnum = -num;
     };
-    let rem = modulo(num, 1);
-    let whole = num - rem;
-    // if (neg === true) {
-    //     return (whole * -1);
-    // } else {
-    //     return whole;
-    // };
-    return neg ? -whole  : whole;
+    let copy = num;
+    while (!(copy< 1 && copy > -1)){
+        copy -=1;
+        count++;
+    };
+    if (neg) {
+        return -count;
+    }
+    return count;
 };
 
 
