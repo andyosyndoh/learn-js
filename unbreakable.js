@@ -42,6 +42,6 @@ function slice(arr, start, end) {
     return resultarr;
 }
 
-console.log(split('a b c', ' '));
-console.log(split('ggg - ddd - b', ' - '))
-console.log(split('ee,ff,g,', ','))
+// console.log(split('a b c', ' '));
+// console.log(split('ggg - ddd - b', ' - '))
+// console.log(split('ee,ff,g,', ','))
