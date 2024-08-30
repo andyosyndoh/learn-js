@@ -10,7 +10,7 @@ function get(src,path){
     // if (keys[1] != 
 
     for (let key of keys) {
-        if (current && current.hasOwnProperty(key)) {
+        if (current && current[key] != undefined) {
             current = current[key]; 
         } else {
             // return keys[keys.length-1];
