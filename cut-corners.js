@@ -84,6 +84,21 @@ function round(num) {
     return whole;
 };
 
+function floor(num) {
+    let neg = false;
+    if (num < 0) {
+        num = (num * -1);
+        neg = true;
+    };
+    let rem = modulo(num, 1);
+    let whole = num - rem;
+    if (neg === true) {
+        return (whole * -1);
+    } else {
+        return whole;
+    };
+};
+
 function ceil(num) {
     let neg = false;
     if (num < 0) {
@@ -108,20 +123,7 @@ function ceil(num) {
     };
 };
 
-function floor(num) {
-    let neg = false;
-    if (num < 0) {
-        num = (num * -1);
-        neg = true;
-    };
-    let rem = modulo(num, 1);
-    let whole = num - rem;
-    if (neg === true) {
-        return (whole * -1);
-    } else {
-        return whole;
-    };
-};
+
 
 function trunc(num) {
     let neg = false;
