@@ -111,7 +111,7 @@ function ceil(num) {
 function floor(num) {
     let neg = false;
     if (num < 0) {
-        num = -num;
+        num = (num * -1);
         neg = true;
     };
     let rem = modulo(num, 1);
