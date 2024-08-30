@@ -92,7 +92,9 @@ function ceil(num) {
     };
     let rem = modulo(num,1);
     let whole = num - rem;
-    whole += 1
+    if (rem > 0){
+        whole += 1;
+    };
 
     if (neg) {
         whole = -whole;
@@ -108,7 +110,9 @@ function floor(num) {
     };
     let rem = modulo(num,1);
     let whole = num - rem;
-    whole -= 1
+    if (rem > 0){
+        whole -= 1;
+    };
 
     if (neg) {
         whole = -whole;
