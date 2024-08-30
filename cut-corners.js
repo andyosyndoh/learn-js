@@ -97,7 +97,7 @@ function floor(num) {
     // } else {
     //     return whole;
     // };
-    return neg ? -whole -1 : whole;
+    return neg ? -whole - 1 : whole;
 };
 
 function ceil(num) {
@@ -115,12 +115,9 @@ function ceil(num) {
 };
 
 function trunc(num) {
-    let neg = false;
-    if (num < 0) {
-        return floor(num)
-    } else {
-        return ceil(num)
-    };
+
+    return floor(num)
+
 };
 
 
