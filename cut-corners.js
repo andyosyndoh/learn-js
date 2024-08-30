@@ -117,17 +117,10 @@ function ceil(num) {
 function trunc(num) {
     let neg = false;
     if (num < 0) {
-        num = -num;
-        neg = true;
+        return floor(num)
+    } else {
+        return ceil(num)
     };
-    let rem = modulo(num, 1);
-    let whole = num - rem;
-    // if (rem >= 0.5) {
-    //     whole += 1;
-    // };
-    if (neg) {
-        whole = -whole;
-    };
-    return whole;
 };
+
 
