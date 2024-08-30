@@ -1,7 +1,12 @@
 function reverse(arr) {
-    let res = [];
-    for (let i= arr.length-1; i >=0;i-- ){
-        res.push(arr[i]);
+    let resultarr = [];
+    let finish = arr.length -1;
+    if (Array.isArray(arr)) {
+        for (let i = finish ; i >= 0; i--) resultarr.push(arr[i]);
+        return resultarr;
     };
-    return res;
+
+    for (let i = finish ; i >= 0; i--) resultarr.push(arr[i]);
+    let ans = resultarr.join("");
+    return ans;
 };
