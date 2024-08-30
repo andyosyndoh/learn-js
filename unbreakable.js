@@ -53,9 +53,9 @@ function join(str, s) {
     let res = '';
     for (let i = 0; i < str.length; i++) {
         if (i < str.length - 1) {
-            res += str + s;
+            res += str[i] + s;
         } else {
-            res += str
+            res += str[i]
         };
     };
     return res
@@ -71,3 +71,4 @@ function trimSpaces(input) {
 // console.log(split('ggg - ddd - b', ' - '))
 // console.log(split('ee,ff,g,', ','))
 // console.log(split('rrrr', 'rr'))
+console.log(join(['ee', 'ff', 'g', ''], ','))
