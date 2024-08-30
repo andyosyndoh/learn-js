@@ -36,19 +36,15 @@ function split(str, sep) {
         }
 
         if (match) {
-            // if (current.trim() !== "") {
             result.push(current.trim());
-            // }
             current = "";
             i += separator.length - 1;
         } else {
             current += str[i];
         }
     }
-
-    // if (current.trim() !== "") {
+ 
     result.push(current.trim());
-    // }
 
     return result;
 };
@@ -73,5 +69,5 @@ function trimSpaces(input) {
 
 // console.log(split('a b c', ' '));
 // console.log(split('ggg - ddd - b', ' - '))
-console.log(split('ee,ff,g,', ','))
-console.log(split('rrrr', 'rr'))
+// console.log(split('ee,ff,g,', ','))
+// console.log(split('rrrr', 'rr'))
