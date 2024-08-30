@@ -92,14 +92,20 @@ function ceil(num) {
     };
     let rem = modulo(num, 1);
     let whole = num - rem;
-    if (rem !== 0) {
-        whole += 1;
+    if (rem === 0) {
+        if (neg === true) {
+            return -whole;
+        } else {
+            return whole;
+        };
+    } else {
+        whole += 1
+        if (neg === true) {
+            return -whole;
+        } else {
+            return whole;
+        };
     };
-
-    if (neg) {
-        whole = -whole;
-    };
-    return whole;
 };
 
 function floor(num) {
@@ -110,13 +116,19 @@ function floor(num) {
     };
     let rem = modulo(num, 1);
     let whole = num - rem;
-    if (rem !== 0) {
-        whole -= 1;
-    }
-    if (neg){
-        whole = -whole;
-    }
-    return whole;
+    if (rem === 0) {
+        if (neg === true) {
+            return -whole;
+        } else {
+            return whole;
+        };
+    } else {
+        if (neg === true) {
+            return -whole;
+        } else {
+            return whole;
+        };
+    };
 };
 
 function trunc(num) {
