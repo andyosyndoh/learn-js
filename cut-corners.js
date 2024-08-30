@@ -114,8 +114,6 @@ function ceil(num) {
     return neg ? -whole : whole + 1;
 };
 
-
-
 function trunc(num) {
     let neg = false;
     if (num < 0) {
