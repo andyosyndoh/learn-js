@@ -110,7 +110,7 @@ function ceil(num) {
     let whole = num - rem;
     if (rem === 0 && !neg) {
         return whole;
-    }
+    };
     return neg ? -whole : whole + 1;
 };
 
