@@ -18,7 +18,7 @@ function length(n) {
     if (n === 1) {
         return ans
     }
-    for (i = 2; i <= n; i++) {
+    for (let i = 2; i <= n; i++) {
         ans += 2
     }
     return ans
