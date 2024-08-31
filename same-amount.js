@@ -1,13 +1,14 @@
 function sameAmount(str, regex1, regex2) {
-    const matches1 = str.match(regex1) || [];
-    const matches2 = str.match(regex2) || [];
+    const newRegex1 = new RegExp(regex1.source, 'g');
+    const newRegex2 = new RegExp(regex2.source, 'g');
 
-    if (matches1 === matches2) {
-        return true;
+    function countMatches(regex) {
+        const matches = str.match(regex);
+        return matches ? matches.length : 0;
     }
 
-    return (matches1.length) === (matches2.length);
-}
+    const count1 = countMatches(newRegex1);
+    const count2 = countMatches(newRegex2);
 
-// const data = "some string without qqqqqqq";
-// console.log(!sameAmount(data, /q /, /qqqqqqq/)); // Output: true
+    return count1 === count2;
+}
