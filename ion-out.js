@@ -6,8 +6,13 @@ function ionOut(str) {
     for (let s of arr) {
         const matches = s.match(regex) || [];
         if (matches.length > 0) {
-            res.push(s.slice(0, -3));
+            if (s[s.length-1] === ','){
+                s = s.slice(0,-1)
+            }
+            res.push(s.slice(0, s.length-3));
         };
     };
     return res;
 }
+
+console.log(ionOut('attention, direction'));
