@@ -14,11 +14,11 @@ function firstDayWeek(weekNumber,year){
         return `01-01-${year}`;
     }
 
-    const day = String(firstDayOfWeek.getDate()-6).padStart(2, '0');
+    const day = String(firstDayOfWeek.getDate()).padStart(2, '0');
     const month = String(firstDayOfWeek.getMonth() + 1).padStart(2, '0');
     const formattedDate = `${day}-${month}-${year}`;
 
     return formattedDate;
 }
 
-console.log(firstDayWeek(2, '0001'))
+console.log(firstDayWeek(52, '2023'))
