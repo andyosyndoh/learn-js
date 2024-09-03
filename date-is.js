@@ -1,7 +1,6 @@
 function isValid(date) {
     let result = new Date(date);
-    if (result == 'Invalid Date') return false;
-    return true
+    return result instanceof Date && !isNaN(result);
 }
 
 function isAfter(date1, date2) {
@@ -20,11 +19,11 @@ function isFuture(date) {
     return false;
 }
 
-// function isPast(date) {
-//     const currentDate = new Date();
-//     if (isValid(date) && currentDate < date) return true;
-//     return false;
-// }
+function isPast(date) {
+    const currentDate = new Date();
+    if (isValid(date) && currentDate < date) return true;
+    return false;
+}
 
 console.log(isValid('2013-01-01'));
 console.log(isValid(''));
