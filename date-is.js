@@ -28,13 +28,13 @@ function isBefore(date1, date2) {
 
 function isFuture(date) {
     const currentDate = new Date();
-    if (isValid(date) && currentDate > date) return true;
+    if (isValid(date) && currentDate > new Date(date)) return true;
     return false;
 }
 
 function isPast(date) {
     const currentDate = new Date();
-    if (isValid(date) && currentDate < date) return true;
+    if (isValid(date) && currentDate < new date(date)) return true;
     return false;
 }
 
