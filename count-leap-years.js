@@ -13,6 +13,7 @@ function countLeapYears(date) {
     const year = date.getFullYear();
 
     function countLeapYearsUpTo(year) {
+        year-=1
         return Math.floor(year / 4) - Math.floor(year / 100) + Math.floor(year / 400);
     }
 
@@ -21,3 +22,4 @@ function countLeapYears(date) {
 
 // Convert the timestamp to a Date object
 // console.log(countLeapYears(new Date(Date.now())));
+console.log(countLeapYears(new Date('1664-08-09')))
