@@ -26,7 +26,7 @@ function trimTemp(arr) {
 function tempForecasts(arr) {
     return arr.map(obj => {
         const city = obj.city;
-        const state = obj.state.charAt(0).toUpperCase() + obj.state.slice(1);
+        const state = upperCasingStates(obj.state);
         const fahrenheit = parseFloat(obj.temperature.replace(/\s+°F/, ''));
 
         const celsius = Math.floor((fahrenheit - 32) * 5 / 9);
@@ -36,31 +36,31 @@ function tempForecasts(arr) {
 }
 
 
-console.log(citiesOnly([
-    {
-        city: 'Los Angeles',
-        temperature: '  101 °F   ',
-    },
-    {
-        city: 'San Francisco',
-        temperature: ' 84 ° F   ',
-    },
-]))
+// console.log(citiesOnly([
+//     {
+//         city: 'Los Angeles',
+//         temperature: '  101 °F   ',
+//     },
+//     {
+//         city: 'San Francisco',
+//         temperature: ' 84 ° F   ',
+//     },
+// ]))
 
-console.log(trimTemp([
-    { city: 'Los Angeles', temperature: '  101 °F   ' },
-    { city: 'San Francisco', temperature: ' 84 ° F   ' },
-]))
+// console.log(trimTemp([
+//     { city: 'Los Angeles', temperature: '  101 °F   ' },
+//     { city: 'San Francisco', temperature: ' 84 ° F   ' },
+// ]))
 
-console.log(upperCasingStates(['alabama', 'new jersey']))
+// console.log(upperCasingStates(['alabama', 'new jersey']))
 
-console.log(fahrenheitToCelsius(['68°F', '59°F', '25°F']))
+// console.log(fahrenheitToCelsius(['68°F', '59°F', '25°F']))
 
-console.log(tempForecasts([
-    {
-        city: 'Pasadena',
-        temperature: ' 101 °F',
-        state: 'california',
-        region: 'West',
-    },
-]))
+// console.log(tempForecasts([
+//     {
+//         city: 'Pasadena',
+//         temperature: ' 101 °F',
+//         state: 'california',
+//         region: 'West',
+//     },
+// ]))
