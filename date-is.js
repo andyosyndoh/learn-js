@@ -27,14 +27,16 @@ function isBefore(date1, date2) {
 }
 
 function isFuture(date) {
-    const currentDate = new Date();
-    if (isValid(date) && currentDate > new Date(date)) return true;
+    if (!isValid(date)) return false;
+    const currentDate =Date.now()
+    if (currentDate < new date(date).getTime()) return true;
     return false;
 }
 
 function isPast(date) {
-    const currentDate = new Date();
-    if (isValid(date) && currentDate < new date(date)) return true;
+    if (!isValid(date)) return false;
+    const currentDate =Date.now()
+    if (currentDate > new date(date).getTime()) return true;
     return false;
 }
 
