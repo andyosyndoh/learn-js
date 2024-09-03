@@ -1,6 +1,8 @@
 function isValid(date) {
     let result = new Date(date);
-    return result instanceof Date && !isNaN(result);
+    if (result.toString() === "Invalid Date") return false;
+    if (result instanceof Date && typeof result === "number") return true;
+    return false
 }
 
 function isAfter(date1, date2) {
