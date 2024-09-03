@@ -20,7 +20,7 @@ function isFuture(date){
     return false;
 }
 
-function isFuture(date){
+function isPast(date){
     const currentDate = new Date();
     if (isValid(date)&& currentDate < date) return true;
     return false;
