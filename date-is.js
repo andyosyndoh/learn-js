@@ -1,7 +1,7 @@
 function isValid(date) {
     let result = new Date(date);
     if (result.toString() === "Invalid Date") return false;
-    if (!result instanceof Date && typeof result !== "number") return false;
+    if (!(result instanceof Date) && typeof result !== "number") return false;
     return true
 }
 
