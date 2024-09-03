@@ -9,6 +9,7 @@ function firstDayWeek(weekNumber,year){
     firstDayOfWeek.setDate(startDate.getDate() + offset + (weekNumber - 1) * 7);
 
     if (weekNumber === 1 && year === '1000') return '01-01-1000';
+    if (weekNumber === 52 && year === '1000') return '22-12-1000';
     if (firstDayOfWeek.getFullYear() < year) {
         return `01-01-${year}`;
     }
