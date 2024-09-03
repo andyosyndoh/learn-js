@@ -7,10 +7,13 @@
 
 function isValid(date) {
     let result = new Date(date);
-    if (result.toString() === "Invalid Date") return false;
-    if (!result instanceof Date && typeof result !== "number") return false;
-    if (!isNaN(result))return false;
-    return true
+    if (result.toString() === "Invalid Date") {
+        return false;
+    }
+    if (!(date instanceof Date) && typeof date !== "number") {
+        return false;
+    }
+    return true;
 }
 
 function isAfter(date1, date2) {
