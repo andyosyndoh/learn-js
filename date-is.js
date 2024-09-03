@@ -1,7 +1,15 @@
+// function okay(date){
+//     if (date instanceof Date) return date;
+//     let result = new Date(date);
+// }
+
+
+
 function isValid(date) {
     let result = new Date(date);
     if (result.toString() === "Invalid Date") return false;
-    if (!(result instanceof Date) && typeof result !== "number") return false;
+    if (!result instanceof Date && typeof result !== "number") return false;
+    if (!isNaN(result))return false;
     return true
 }
 
@@ -29,3 +37,4 @@ function isPast(date) {
 
 console.log(isValid('2013-01-01'));
 console.log(isValid(''));
+console.log(isValid(new Date()))
