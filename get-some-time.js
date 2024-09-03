@@ -1,24 +1,26 @@
-function firstDayWeek(weekNumber,year){
-    const startDate = new Date(year, 0, 1);
+function firstDayWeek(weekNumber, year) {
+    const janFirst = new Date(`${year}-01-01`);
+    
+    let dayOfWeek = janFirst.getDay();
+    if (dayOfWeek === 0) dayOfWeek = 7; 
 
-    const dayOfWeek = startDate.getDay();
+    const daysToMonday = 8 - dayOfWeek;
+    const firstMonday = new Date(janFirst);
+    firstMonday.setDate(janFirst.getDate() + daysToMonday);
 
-    const offset = (dayOfWeek === 0) ? 1 : (8 - dayOfWeek);
+    const targetMonday = new Date(firstMonday);
+    targetMonday.setDate(firstMonday.getDate() + (weekNumber - 2) * 7);
 
-    const firstDayOfWeek = new Date(startDate);
-    firstDayOfWeek.setDate(startDate.getDate() + offset + (weekNumber - 1) * 7);
-
-    if (weekNumber === 1 && year === '1000') return '01-01-1000';
-    if (weekNumber === 52 && year === '1000') return '22-12-1000';
-    if (firstDayOfWeek.getFullYear() < year) {
-        return `01-01-${year}`;
+    if (targetMonday.getFullYear() < janFirst.getFullYear()) {
+      targetMonday.setFullYear(janFirst.getFullYear());
+      targetMonday.setMonth(0); 
+      targetMonday.setDate(1); 
     }
 
-    const day = String(firstDayOfWeek.getDate()).padStart(2, '0');
-    const month = String(firstDayOfWeek.getMonth() + 1).padStart(2, '0');
-    const formattedDate = `${day}-${month}-${year}`;
-
+    const day = String(targetMonday.getDate()).padStart(2, '0');
+    const month = String(targetMonday.getMonth() + 1).padStart(2, '0');
+    const formattedDate = `${day}-${month}-${targetMonday.getFullYear().toString().padStart(4, '0')}`;
     return formattedDate;
-}
+  }
 
 console.log(firstDayWeek(52, '2023'))
