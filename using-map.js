@@ -26,7 +26,7 @@ function trimTemp(arr) {
 function tempForecasts(arr) {
     return arr.map(obj => {
         const city = obj.city;
-        const state = upperCasingStates(obj.state);
+        const state =  obj.state.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
         const fahrenheit = parseFloat(obj.temperature.replace(/\s+°F/, ''));
 
         const celsius = Math.floor((fahrenheit - 32) * 5 / 9);
@@ -60,7 +60,7 @@ console.log(tempForecasts([
     {
         city: 'Pasadena',
         temperature: ' 101 °F',
-        state: 'california',
+        state: 'new jersey',
         region: 'West',
     },
 ]))
