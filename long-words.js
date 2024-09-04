@@ -4,8 +4,8 @@ function longWords(arr) {
 }
 
 function oneLongWord(arr) {
-    const match = arr.filter(obj => typeof obj === 'string' && obj.length >= 10) || [];
-    return match.length > 0;
+    return arr.filter(obj => typeof obj === 'string' && obj.length >= 10) || [];
+
 }
 
 function noLongWords(arr) {
