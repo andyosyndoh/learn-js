@@ -1,9 +1,9 @@
 function longWords(arr) {
-    return arr.filter(obj => typeof obj === 'string' && obj.length >= 5);
+    return arr.every(obj => typeof obj === 'string' && obj.length >= 5);
 }
 
 function oneLongWord(arr) {
-    return arr.filter(obj => typeof obj === 'string' && obj.length >= 10);
+    return arr.some(obj => typeof obj === 'string' && obj.length >= 10);
 
 }
 
