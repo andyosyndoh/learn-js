@@ -3,7 +3,7 @@ function longWords(arr) {
     return match.length === arr.length;
 }
 
-function longWords(arr) {
+function oneLongWord(arr) {
     const match = arr.filter(obj => typeof obj === 'string' && obj.length >= 10) || [];
     return match.length > 0;
 }
