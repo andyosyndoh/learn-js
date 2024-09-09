@@ -1,25 +1,27 @@
-function pick(obj, arr) {
+function pick(obj, keys) {
     const result = {};
 
-    for (let key in obj) {
-        for (let str of arr) {
-            if (key === str) {
-                result.key = obj.key;
-            }
+    const keyArray = Array.isArray(keys) ? keys : [keys];
+
+    keyArray.forEach(key => {
+        if (obj.hasOwnProperty(key)) {
+            result[key] = obj[key];
         }
-    }
+    });
 
     return result;
 }
 
-function omit(obj, arr) {
+function omit(obj, keys) {
     const result = {};
 
-    for (let key in obj) {
-        if (!arr.hasOwnProperty(key)) {
-            result.key = obj.key;
+    const keyArray = Array.isArray(keys) ? keys : [keys];
+
+    keyArray.forEach(key => {
+        if (!obj.hasOwnProperty(key)) {
+            result[key] = obj[key];
         }
-    }
+    });
 
     return result;
 }
