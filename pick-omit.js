@@ -3,7 +3,7 @@ function pick(obj, arr) {
 
     for (let key in obj) {
         if (arr.hasOwnProperty(key)) {
-            result[obj] = key;
+            result[key] = obj[key];
         }
     }
 
@@ -15,7 +15,7 @@ function omit(obj, arr) {
 
     for (let key in obj) {
         if (!arr.hasOwnProperty(key)) {
-            result[obj] = key;
+            result[key] = obj[key];
         }
     }
 
