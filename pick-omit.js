@@ -2,8 +2,10 @@ function pick(obj, arr) {
     const result = {};
 
     for (let key in obj) {
-        if (arr.hasOwnProperty(key)) {
-            result[key] = obj[key];
+        for (let str of arr) {
+            if (key === str) {
+                result.key = obj.key;
+            }
         }
     }
 
@@ -15,7 +17,7 @@ function omit(obj, arr) {
 
     for (let key in obj) {
         if (!arr.hasOwnProperty(key)) {
-            result[key] = obj[key];
+            result.key = obj.key;
         }
     }
 
