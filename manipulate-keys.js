@@ -23,5 +23,6 @@ function reduceKeys(obj, callback, initialValue) {
     let res = Object.keys(obj).reduce((acc, curr) => {
         return callback(acc, curr, initialValue);
     }, initialValue);
+    if (res.slice(0, 2) === ", ") res = res.slice(2);
     return res;
 }
