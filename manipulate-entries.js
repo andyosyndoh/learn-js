@@ -1,6 +1,7 @@
 function totalCalories(entries) {
     return Number(
-        entries.reduce(
+        reduceEntries(
+            entries,
             (acc, curr) => {
                 let value = (nutritionDB[curr[0]]["calories"] / 100) * curr[1];
                 return acc + value;
