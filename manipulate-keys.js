@@ -24,5 +24,6 @@ function reduceKeys(obj, callback, initialValue) {
         return callback(acc, curr, initialValue);
     }, initialValue);
     if (res.slice(0, 2) === ", ") res = res.slice(2);
+    if (res.slice(0, 1) === ":") res = res.slice(1);
     return res;
 }
