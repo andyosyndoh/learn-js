@@ -5,7 +5,7 @@ function deepCopy(input) {
             output[i] = deepCopy(input[i]);
         }
         return output;
-    } else if (typeof input === "object") {
+    } else if (typeof input === "object" && !(input instanceof RegExp)) {
         var output = {};
         for (var key in input) {
             output[key] = deepCopy(input[key]);
