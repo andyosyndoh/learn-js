@@ -28,7 +28,7 @@ function reduceKeys(obj, callback, initialValue) {
     return res;
 }
 
-const nutrients = { carbohydrates: 12, protein: 20, fat: 5 }
+// const nutrients = { carbohydrates: 12, protein: 20, fat: 5 }
 
-console.log(reduceKeys(nutrients, (acc, cr) =>`${acc}${cr}:`, ':'))
-// output: carbohydrates, protein, fat
+// console.log(reduceKeys(nutrients, (acc, cr) =>`${acc}${cr}:`, ':'))
+// // output: carbohydrates, protein, fat
