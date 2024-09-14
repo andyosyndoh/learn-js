@@ -1,13 +1,8 @@
-function all(obj) {
-    const entries = Object.entries(obj); // Get key-value pairs
-    const promises = entries.map(([key, value]) => {
-        return Promise.resolve(value).then(resolvedValue => [key, resolvedValue]);
-    });
-
-    return Promise.all(promises).then(resolvedEntries => {
-        return resolvedEntries.reduce((acc, [key, value]) => {
-            acc[key] = value;
-            return acc;
-        }, {});
-    });
+async function all(obj = {}) {
+    var res = {};
+    if (Object.keys(obj).length === 0) return {};
+    for (let key in objs) {
+        res[key] = await objs[key];
+    }
+    return res;
 }
