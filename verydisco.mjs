@@ -1,4 +1,6 @@
 let args = process.argv.slice(2)
+let obj = args[0]
+args = obj.split(' ')
 let ans = [];
 for (let i = 0; i < args.length; i++) {
     let len = args[i].length;
