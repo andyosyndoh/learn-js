@@ -48,15 +48,7 @@ async function printGuestNames(directoryPath) {
             result += `${index + 1}. ${guest}\n`;
         });
 
-        async function writeToFile() {
-            try {
-                await writeFile('vip.txt', result);
-                console.log('File written successfully to verydisco-forever.txt');
-            } catch (err) {
-                console.error('Error writing to file:', err);
-            }
-        }
-        writeToFile()
+        return result
 
     } catch (err) {
         console.log('');
@@ -64,9 +56,21 @@ async function printGuestNames(directoryPath) {
     }
 }
 
+async function writeToFile(listguest) {
+    try {
+        await writeFile('vip.txt', listguest);
+        console.log('File written successfully to vip.txt');
+    } catch (err) {
+        console.error('Error writing to file:', err);
+    }
+}
+
+
 // Determine directory path from command-line arguments
 const args = process.argv;
 const directoryPath = args[2] || '.'; // Default to current directory if not provided
 
 // Call the function with the directory path
-printGuestNames(directoryPath);
+let listguest = printGuestNames(directoryPath);
+
+writeToFile(listguest)
