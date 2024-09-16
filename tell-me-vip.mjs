@@ -28,7 +28,8 @@ async function printGuestNames(directoryPath) {
                         list.push(formattedName);
                     }
                 } catch (error) {
-                    console.error(`Error reading or parsing file: ${file.name}`, error);
+                    console.log('')
+                    return
                 }
             }
         }
