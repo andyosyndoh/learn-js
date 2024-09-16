@@ -8,7 +8,8 @@ async function printGuestNames(directoryPath) {
         let list = [];
         for (let file of files){
             let name = file.name
-            let names = name.split('-')
+            name = name.substring(0,-5)
+            let names = name.split('_')
             name = names[1] + ' ' + names[0]
             list.push(name)
         }
@@ -22,7 +23,8 @@ async function printGuestNames(directoryPath) {
         let index = 0;
 
         for (let invite of list){
-            console.log(`${index+1}. ${invite}`)
+            index += 1
+            console.log(`${index}. ${invite}`)
         }
 
     } catch (err) {
