@@ -5,7 +5,7 @@ async function countFilesInDirectory(directoryPath) {
     try {
         const files = await readdir(directoryPath, { withFileTypes: true });
         const fileCount = files.filter(file => file.isFile()).length;
-        console.log(`Number of files in directory '${directoryPath}': ${fileCount}`);
+        console.log(fileCount);
     } catch (err) {
         console.error('Error reading directory:', err);
     }
