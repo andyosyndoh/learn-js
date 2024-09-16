@@ -10,7 +10,7 @@ try {
     let ans = [];
     for (let i = 0; i < words.length; i++) {
         let len = words[i].length;
-        let half = Math.ceil(len / 2);
+        let half = Math.floor(len / 2);
         let refined = words[i].substring(half) + words[i].substring(0, half)
         ans.push(refined)
     }
