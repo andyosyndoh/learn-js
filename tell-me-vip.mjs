@@ -47,7 +47,8 @@ async function printGuestNames(directoryPath) {
         });
 
     } catch (err) {
-        console.error('Error reading directory:', err);
+        console.log('');
+        return
     }
 }
 
