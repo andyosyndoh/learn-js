@@ -1,25 +1,27 @@
-const fs = require('fs');
+import { writeFile } from 'fs/promises';
 
 // Get command line arguments and process them
-let args = process.argv.slice(2);
-let obj = args[0];
-args = obj.split(' ');
+const args = process.argv.slice(2);
+const obj = args[0];
+const words = obj.split(' ');
 
-let ans = [];
-for (let i = 0; i < args.length; i++) {
-    let len = args[i].length;
-    let half = Math.ceil(len / 2);
-    let refined = args[i].substring(half) + args[i].substring(0, half);
-    ans.push(refined);
-}
+const ans = words.map(word => {
+    const len = word.length;
+    const half = Math.ceil(len / 2);
+    const refined = word.substring(half) + word.substring(0, half);
+    return refined;
+});
 
-let ref = ans.join(' ');
+const ref = ans.join(' ');
 
 // Write the result to 'verydisco-forever.txt'
-fs.writeFile('verydisco-forever.txt', ref, (err) => {
-    if (err) {
-        console.error('Error writing to file:', err);
-    } else {
+async function writeToFile() {
+    try {
+        await writeFile('verydisco-forever.txt', ref);
         console.log('File written successfully to verydisco-forever.txt');
+    } catch (err) {
+        console.error('Error writing to file:', err);
     }
-});
+}
+
+writeToFile();
