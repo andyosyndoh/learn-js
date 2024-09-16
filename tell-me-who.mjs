@@ -8,10 +8,10 @@ async function printGuestNames(directoryPath) {
         let list = [];
         for (let file of files){
             let name = file.name
-            name = name.substring(0,-5)
-            let names = name.split('_')
-            name = names[1] + ' ' + names[0]
-            list.push(name)
+            let name1 = name.slice(0,-5)
+            let names = name1.split('_')
+            let name2 = names[1] + ' ' + names[0]
+            list.push(name2)
         }
 
         list.sort((a, b) => {
