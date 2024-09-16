@@ -45,10 +45,15 @@ async function printGuestNames(directoryPath) {
         // Print the sorted list with numbering
         let result = '';
         list.forEach((guest, index) => {
-            result += `${index + 1}. ${guest}\n`;
+            result += String(index + 1) + '. ' + guest + '\n'
         });
 
-        return result
+        try {
+            await writeFile('vip.txt', result);
+            console.log('File written successfully to vip.txt');
+        } catch (err) {
+            console.error('Error writing to file:', err);
+        }
 
     } catch (err) {
         console.log('');
@@ -57,12 +62,7 @@ async function printGuestNames(directoryPath) {
 }
 
 async function writeToFile(listguest) {
-    try {
-        await writeFile('vip.txt', listguest);
-        console.log('File written successfully to vip.txt');
-    } catch (err) {
-        console.error('Error writing to file:', err);
-    }
+    
 }
 
 
@@ -71,6 +71,5 @@ const args = process.argv;
 const directoryPath = args[2] || '.'; // Default to current directory if not provided
 
 // Call the function with the directory path
-let listguest = printGuestNames(directoryPath);
+printGuestNames(directoryPath);
 
-writeToFile(listguest)
