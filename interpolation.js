@@ -1,4 +1,4 @@
-function interpolation({step = 0,start = 0,end = 0,callback = () => { }, duration = 0,} = {}) {
+function interpolation({ step = 0, start = 0, end = 0, callback = () => { }, duration = 0, } = {}) {
     const delta = (end - start) / step;
     let current = start;
     let i = 0;
