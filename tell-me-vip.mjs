@@ -56,7 +56,7 @@ async function printGuestNames(directoryPath) {
                 console.error('Error writing to file:', err);
             }
         }
-        writeFile()
+        writeToFile()
 
     } catch (err) {
         console.log('');
