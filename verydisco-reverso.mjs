@@ -7,14 +7,13 @@ try {
     const filePath = new URL(obj, import.meta.url);
     const contents = await readFile(filePath, { encoding: 'utf8' });
     const words = contents.split(' ');
-
-    const ans = words.map(word => {
-        const len = word.length;
-        const half = Math.ceil(len / 2);
-        const refined = word.substring(half) + word.substring(0, half);
-        return refined;
-    });
-
+    let ans = [];
+    for (let i = 0; i < words.length; i++) {
+        let len = words[i].length;
+        let half = Math.ceil(len / 2);
+        let refined = words[i].substring(half) + words[i].substring(0, half)
+        ans.push(refined)
+    }
     const ref = ans.join(' ');
     console.log(ref)
 } catch (err) {
