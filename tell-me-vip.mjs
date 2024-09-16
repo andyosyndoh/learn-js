@@ -50,12 +50,14 @@ async function printGuestNames(directoryPath) {
 
         async function writeToFile() {
             try {
-                await writeFile('vip.txt', ref);
+                await writeFile('vip.txt', result);
                 console.log('File written successfully to verydisco-forever.txt');
             } catch (err) {
                 console.error('Error writing to file:', err);
             }
         }
+        writeFile()
+
     } catch (err) {
         console.log('');
         return
