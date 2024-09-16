@@ -9,12 +9,12 @@ async function printGuestNames(directoryPath) {
 
         let list = [];
         for (let file of files) {
-            if (file.isFile()) { // Ensure it's a file
+            if (file.isFile() && file.name.endsWith('.json')) { // Ensure it's a file
                 const filePath = join(directoryPath, file.name); // Get full file path
                 try {
                     const data = await readFile(filePath, 'utf-8');
                     const jsonObject = JSON.parse(data);
-                    
+
                     // Check if the JSON object's 'answer' field is "yes"
                     if (jsonObject.answer === "yes") {
                         let name = file.name.slice(0, -5); // Remove '.json' from file name
