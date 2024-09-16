@@ -7,6 +7,11 @@ async function printGuestNames(directoryPath) {
         // Read directory contents
         const files = await readdir(directoryPath, { withFileTypes: true });
 
+        if (files.length === 0) {
+            console.log(''); // Print an empty string as expected by the test
+            return;
+        }
+
         let list = [];
         for (let file of files) {
             if (file.isFile() && file.name.endsWith('.json')) { // Ensure it's a file
