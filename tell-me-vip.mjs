@@ -1,40 +1,47 @@
-import { readdir } from 'fs/promises';
-import { readFile } from 'fs/promises';
+import { readdir, readFile } from 'fs/promises';
+import { join } from 'path'; // Join directory path and file names
 
 // Function to read and print guest names from the directory
 async function printGuestNames(directoryPath) {
     try {
         // Read directory contents
         const files = await readdir(directoryPath, { withFileTypes: true });
+
         let list = [];
         for (let file of files) {
-            const data = await readFile(file, 'utf-8');
-            const jsonObject = JSON.parse(data);
-            if (jsonObject.answer === "yes") {
-                let name = file.name
-                let name1 = name.slice(0, -5)
-                let names = name1.split('_')
-                let name2 = names[1] + ' ' + names[0]
-                list.push(name2)
+            if (file.isFile()) { // Ensure it's a file
+                const filePath = join(directoryPath, file.name); // Get full file path
+                try {
+                    const data = await readFile(filePath, 'utf-8');
+                    const jsonObject = JSON.parse(data);
+                    
+                    // Check if the JSON object's 'answer' field is "yes"
+                    if (jsonObject.answer === "yes") {
+                        let name = file.name.slice(0, -5); // Remove '.json' from file name
+                        let [firstName, lastName] = name.split('_');
+                        let formattedName = `${lastName} ${firstName}`; // Format name as "Lastname Firstname"
+                        list.push(formattedName);
+                    }
+                } catch (error) {
+                    console.error(`Error reading or parsing file: ${file.name}`, error);
+                }
             }
-
         }
 
+        // Sort the names alphabetically
         list.sort((a, b) => {
             const [aLast, aFirst] = a.split(' ');
             const [bLast, bFirst] = b.split(' ');
             return aLast.localeCompare(bLast) || aFirst.localeCompare(bFirst);
         });
 
-        let index = 0;
-
-        for (let invite of list) {
-            index += 1
-            console.log(`${index}. ${invite}`)
-        }
+        // Print the sorted list with numbering
+        list.forEach((guest, index) => {
+            console.log(`${index + 1}. ${guest}`);
+        });
 
     } catch (err) {
-        console.error('Error reading directory or files:', err);
+        console.error('Error reading directory:', err);
     }
 }
 
