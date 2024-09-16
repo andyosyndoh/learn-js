@@ -4,7 +4,7 @@ import { readFile } from 'fs/promises';
 const args = process.argv.slice(2);
 const obj = args[0];
 try {
-    const filePath = new URL('./package.json', import.meta.url);
+    const filePath = new URL(obj, import.meta.url);
     const contents = await readFile(filePath, { encoding: 'utf8' });
     const words = contents.split(' ');
 
