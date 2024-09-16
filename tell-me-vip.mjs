@@ -1,5 +1,6 @@
 import { readdir, readFile } from 'fs/promises';
 import { join } from 'path'; // Join directory path and file names
+import { writeFile } from 'fs/promises';
 
 // Function to read and print guest names from the directory
 async function printGuestNames(directoryPath) {
@@ -42,10 +43,19 @@ async function printGuestNames(directoryPath) {
         });
 
         // Print the sorted list with numbering
+        let result = '';
         list.forEach((guest, index) => {
-            console.log(`${index + 1}. ${guest}`);
+            result += `${index + 1}. ${guest}\n`;
         });
 
+        async function writeToFile() {
+            try {
+                await writeFile('vip.txt', ref);
+                console.log('File written successfully to verydisco-forever.txt');
+            } catch (err) {
+                console.error('Error writing to file:', err);
+            }
+        }
     } catch (err) {
         console.log('');
         return
