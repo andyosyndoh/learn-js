@@ -25,6 +25,12 @@ const requestListener = async (req, res) => {
                 try {
                     const guestData = JSON.parse(body);
 
+                    if (JSON.stringify(guestData) === '') {
+                        res.writeHead(500, { 'Content-Type': 'application/json' });
+                        res.end(JSON.stringify({ error: 'server failed' }));
+                        process.exit(1);
+                    }
+
                     const guestFilePath = join('./guests', `${guestName}.json`);
 
                     await writeFile(guestFilePath, JSON.stringify(guestData, null, 2), 'utf-8');
