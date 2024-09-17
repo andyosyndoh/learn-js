@@ -8,13 +8,13 @@ async function saveVipGuests(file, action, newFileName = null) {
             let outputFileName;
 
             if (action === 'encode') {
-                result = Buffer.from(fileContent).toString('base64');
+                result = Buffer.from(fileContent, 'utf-8').toString('base64');
                 if (newFileName === null) {
                     outputFileName = 'cypher.txt';
                 } else {
                     outputFileName = newFileName;
                 }
-                
+                await writeFile(outputFileName, result, 'utf-8');
             } else if (action === 'decode') {
                 result = Buffer.from(fileContent, 'base64').toString('utf-8');
                 if (newFileName === null) {
@@ -22,12 +22,13 @@ async function saveVipGuests(file, action, newFileName = null) {
                 } else {
                     outputFileName = newFileName;
                 }
+                await writeFile(outputFileName, result, 'utf-8');
             } else {
                 throw new Error('Invalid action. Use "encode" or "decode".');
             }
         }
 
-        await writeFile(outputFileName, result, 'utf-8');
+        
         console.log('cyphered');
 
     } catch (err) {
