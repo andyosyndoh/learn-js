@@ -1,36 +1,31 @@
-import {  readFile, writeFile } from 'fs/promises';
+import { readFile, writeFile } from 'fs/promises';
 
-async function saveVipGuests(file, action, newFileName = '') {
+async function saveVipGuests(filePath, action, newFileName = '') {
     try {
-        if (file.isFile()) {
-            const fileContent = await readFile(file, 'utf-8');
-            let result;
-            let outputFileName;
+        const fileContent = await readFile(filePath, 'utf-8');
+        let result;
+        let outputFileName;
 
-            if (action === 'encode') {
-                result = Buffer.from(fileContent, 'utf-8').toString('base64');
-                if (newFileName === '') {
-                    outputFileName = 'cypher.txt';
-                } else {
-                    outputFileName = newFileName;
-                }
-                await writeFile(outputFileName, result, 'utf-8');
-            } else if (action === 'decode') {
-                result = Buffer.from(fileContent, 'base64').toString('utf-8');
-                if (newFileName === '') {
-                    outputFileName = 'clear.txt';
-                } else {
-                    outputFileName = newFileName;
-                }
-                await writeFile(outputFileName, result, 'utf-8');
+        if (action === 'encode') {
+            result = Buffer.from(fileContent, 'utf-8').toString('base64');
+            if (newFileName === '') {
+                outputFileName = 'cypher.txt';
             } else {
-                throw new Error('Invalid action. Use "encode" or "decode".');
+                outputFileName = newFileName;
             }
+            await writeFile(outputFileName, result, 'utf-8');
+        } else if (action === 'decode') {
+            result = Buffer.from(fileContent, 'base64').toString('utf-8');
+            if (newFileName === '') {
+                outputFileName = 'clear.txt';
+            } else {
+                outputFileName = newFileName;
+            }
+            await writeFile(outputFileName, result, 'utf-8');
+        } else {
+            throw new Error('Invalid action. Use "encode" or "decode".');
         }
-
-        
         console.log('cyphered');
-
     } catch (err) {
         console.error('Error reading directory or files:', err);
     }
@@ -42,4 +37,4 @@ const action = args[3];
 const newFileName = args[4];
 
 
-saveVipGuests(filePath,action,newFileName);
+saveVipGuests(filePath, action, newFileName);
