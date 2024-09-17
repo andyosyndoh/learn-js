@@ -9,10 +9,19 @@ async function saveVipGuests(file, action, newFileName = null) {
 
             if (action === 'encode') {
                 result = Buffer.from(fileContent).toString('base64');
-                outputFileName = newFileName || 'cypher.txt';
+                if (newFileName === null) {
+                    outputFileName = 'cypher.txt';
+                } else {
+                    outputFileName = newFileName;
+                }
+                
             } else if (action === 'decode') {
                 result = Buffer.from(fileContent, 'base64').toString('utf-8');
-                outputFileName = newFileName || 'clear.txt';
+                if (newFileName === null) {
+                    outputFileName = 'clear.txt';
+                } else {
+                    outputFileName = newFileName;
+                }
             } else {
                 throw new Error('Invalid action. Use "encode" or "decode".');
             }
