@@ -1,6 +1,7 @@
 import http from 'http';
 import { writeFile } from 'fs/promises';
 import { join } from 'path';
+import fs from 'fs';
 
 const PORT = 5000;
 
@@ -27,7 +28,7 @@ const requestListener = async (req, res) => {
 
                     const guestFilePath = join('./guests', `${guestName}.json`);
 
-                    await writeFile(guestFilePath, JSON.stringify(guestData, null, 2), 'utf-8', err => {
+                    fs.writeFile(guestFilePath, JSON.stringify(guestData, null, 2), 'utf-8', err => {
                         if (err) {
                             res.writeHead(500, { 'Content-Type': 'application/json' });
                             res.end(JSON.stringify({ error: 'server failed' }));
