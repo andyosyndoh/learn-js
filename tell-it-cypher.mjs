@@ -1,6 +1,6 @@
 import {  readFile, writeFile } from 'fs/promises';
 
-async function saveVipGuests(file, action, newFileName = null) {
+async function saveVipGuests(file, action, newFileName = '') {
     try {
         if (file.isFile()) {
             const fileContent = await readFile(file, 'utf-8');
@@ -9,7 +9,7 @@ async function saveVipGuests(file, action, newFileName = null) {
 
             if (action === 'encode') {
                 result = Buffer.from(fileContent, 'utf-8').toString('base64');
-                if (newFileName === null) {
+                if (newFileName === '') {
                     outputFileName = 'cypher.txt';
                 } else {
                     outputFileName = newFileName;
@@ -17,7 +17,7 @@ async function saveVipGuests(file, action, newFileName = null) {
                 await writeFile(outputFileName, result, 'utf-8');
             } else if (action === 'decode') {
                 result = Buffer.from(fileContent, 'base64').toString('utf-8');
-                if (newFileName === null) {
+                if (newFileName === '') {
                     outputFileName = 'clear.txt';
                 } else {
                     outputFileName = newFileName;
