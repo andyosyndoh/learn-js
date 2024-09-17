@@ -1,5 +1,4 @@
 import http from 'http';
-import { writeFile } from 'fs/promises';
 import { join } from 'path';
 import fs from 'fs';
 
