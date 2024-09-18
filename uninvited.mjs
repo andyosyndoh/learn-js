@@ -1,60 +1,61 @@
 import http from 'http';
-import { join } from 'path';
-import fs from 'fs';
+import fs from 'fs/promises';
+import path from 'path';
 
 const PORT = 5000;
+const GUESTS_DIR = 'guests';
 
+const server = http.createServer(async (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
 
-const requestListener = async (req, res) => {
-    if (req.method === 'POST') {
-        try {
-            const guestName = req.url.slice(1);
+  if (req.method !== 'POST') {
+    return sendResponse(res, 500, { error: 'server failed' });
+  }
 
-            if (!guestName) {
-                res.writeHead(500, { 'Content-Type': 'application/json' });
-                res.end(JSON.stringify({ error: 'server failed' }));
-                return;
-            }
+  const guestName = req.url.substring(1);
+  if (!guestName) {
+    return sendResponse(res, 500, { error: 'server failed' });
+  }
 
-            let body = '';
-            req.on('data', chunk => {
-                body += chunk.toString();
-            });
+  try {
+    // Ensure the guests directory exists
+    await fs.mkdir(GUESTS_DIR, { recursive: true });
 
-            req.on('end', async () => {
-                try {
-                    const guestData = JSON.parse(body);
+    const body = await getRequestBody(req);
 
-                    const guestFilePath = join('./guests', `${guestName}.json`);
+    const filePath = path.join(GUESTS_DIR, `${guestName}.json`);
+    await fs.writeFile(filePath, body);
 
-                    fs.writeFile(guestFilePath, JSON.stringify(guestData, null, 2), 'utf-8', err => {
-                        if (err) {
-                            res.writeHead(500, { 'Content-Type': 'application/json' });
-                            res.end(JSON.stringify({ error: 'server failed' }));
-                        } else {
-                            res.writeHead(201, { 'Content-Type': 'application/json' });
-                            res.end(JSON.stringify(guestData));
-                        }
-                    });
-
-
-                } catch (error) {
-                    res.writeHead(500, { 'Content-Type': 'application/json' });
-                    res.end(JSON.stringify({ error: 'server failed' }));
-                }
-            });
-        } catch (error) {
-            res.writeHead(500, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ error: 'server failed' }));
-        }
-    } else {
-        res.writeHead(500, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ error: 'server failed' }));
+    // Try to parse the body as JSON for the response
+    let responseData;
+    try {
+      responseData = JSON.parse(body);
+    } catch (jsonError) {
+      // If parsing fails, send the raw body
+      responseData = body;
     }
-};
 
-const server = http.createServer(requestListener);
+    sendResponse(res, 201, responseData);
+  } catch (err) {
+    console.error('Error:', err);
+    sendResponse(res, 500, { error: 'server failed' });
+  }
+});
+
+function sendResponse(res, statusCode, data) {
+  res.writeHead(statusCode);
+  res.end(JSON.stringify(data));
+}
+
+function getRequestBody(req) {
+  return new Promise((resolve, reject) => {
+    let body = '';
+    req.on('data', chunk => body += chunk.toString());
+    req.on('end', () => resolve(body));
+    req.on('error', reject);
+  });
+}
 
 server.listen(PORT, () => {
-    console.log(`Server is listening on port ${PORT}`);
+  console.log(`Server is listening on port ${PORT}`);
 });
